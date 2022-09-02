@@ -40,3 +40,4 @@ Once the user is done creating their team, the html document will be created in 
 ![Team Profile Generator](./source/screenshot.png)
 
 # Video Demo
+[Untitled_ Sep 2, 2022 4_06 PM.webm](https://user-images.githubusercontent.com/70189946/188245539-2da03beb-5e64-4af7-9504-a31927afa19c.webm)
