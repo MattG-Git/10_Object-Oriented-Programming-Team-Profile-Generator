@@ -2,10 +2,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 //importing the classes
-const Employee = require('./lib/Employee');
+//const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { managerTile, engineerTile, internTile, generateTeamHtml } = require('./source/generatehtml');
 
 //this is an array of questions for managers, engineers and interns with validation
 const questions = {
@@ -163,7 +164,7 @@ newEmployee: [
         name: 'newEmployee',
         type: 'list',
         message: 'would you like to add a new employee?',
-        choices: ('New Engineer', 'New Intern', 'Finish Building Team')
+        choices: ["New Engineer", "New Intern", "Finish Building Team"]
     }
 ]
 };
@@ -172,6 +173,7 @@ newEmployee: [
 function init() {
     inquirer.prompt(questions.manager).then(response => {
         const manager = new Manager(response.mName, response.mId, response.mEmail, response.officeNumber);
+        console.log(manager);
         addTeamMember(manager, [], []);
     });
 }
@@ -192,7 +194,11 @@ function addTeamMember(manager, engineers, interns) {
                 addTeamMember(manager, engineers, interns);
             })
         } else {
-            //this is where I will call generate html functions for manager, engineer & intern
+            const managerInfo = managerTile(manager);
+            const engineerInfo = engineerTile(engineers);
+            const internInfo = internTile(interns);
+
+            fs.writeFile("dist/teamMembers.html", generateTeamHtml(managerInfo, engineerInfo, internInfo), (err) => err ? console.error(err) : console.log('You\'ve Created your team!'));
         }
     })
 }
