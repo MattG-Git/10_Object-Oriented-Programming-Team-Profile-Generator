@@ -2,10 +2,10 @@
 const managerTile = (manager) => {
     return `
     <div class="card">
-        <div class="card-body">
-            <h2>${manager.name}</h2>
-            <h5>Manager</h5>
-            <div class="card-body">
+        <div class="card-body text-center">
+            <h2 class="text-white bg-primary">${manager.name}</h2>
+            <h5 class="text-white bg-primary">Manager</h5>
+            <div class="card-body bg-light">
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${manager.id}</li>
                     <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
@@ -18,13 +18,14 @@ const managerTile = (manager) => {
 
 //this function will display the engineer tile
 const engineerTile = (engineers) => {
+    //maps over the engineers array to create a bootstrap card
     return engineers.map(engineer =>{
         return `
         <div class="card">
-            <div class="card-body">
-                <h2>${engineer.name}</h2>
-                <h5>Engineer</h5>
-                <div class="card-body">
+            <div class="card-body text-center">
+                <h2 class="text-white bg-primary">${engineer.name}</h2>
+                <h5 class="text-white bg-primary">Engineer</h5>
+                <div class="card-body bg-light">
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${engineer.id}</li>
                         <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
@@ -34,18 +35,20 @@ const engineerTile = (engineers) => {
             </div>
         </div>
     `})
+    //joins template literals into one html document
     .join(" ");
 };
 
 //this function will display the intern tile
 const internTile = (interns) => {
+    //maps over the interns array to create a bootstrap card
     return interns.map(intern =>{
         return `
         <div class="card">
-            <div class="card-body">
-                <h2>${intern.name}</h2>
-                <h5>Intern</h5>
-                <div class="card-body">
+            <div class="card-body text-center">
+                <h2 class="text-white bg-primary">${intern.name}</h2>
+                <h5 class="text-white bg-primary">Intern</h5>
+                <div class="card-body bg-light">
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${intern.id}</li>
                         <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
@@ -55,6 +58,7 @@ const internTile = (interns) => {
             </div>
         </div>
     `})
+    //joins template literals into one html document
     .join(" ");
 };
 
@@ -70,20 +74,18 @@ const generateTeamHtml = (managerTile, engineerTile, internTile) => {
     <title> Team Profile Generator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
-    <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 <body>
     <div>
         <div>
-            <h1>My Team</h1>
+            <h1 class="text-center fw-bold text-white bg-danger">My Team</h1>
         </div>
     </div>
     <div class="container">
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-4">
             ${managerTile} ${engineerTile} ${internTile}
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>"></script>
 </body>
 </html>  `
 };

@@ -164,7 +164,7 @@ newEmployee: [
         name: 'newEmployee',
         type: 'list',
         message: 'would you like to add a new employee?',
-        choices: ["New Engineer", "New Intern", "Finish Building Team"]
+        choices: ['New Engineer', 'New Intern', 'Finish Building Team']
     }
 ]
 };
@@ -198,7 +198,7 @@ function addTeamMember(manager, engineers, interns) {
             const engineerInfo = engineerTile(engineers);
             const internInfo = internTile(interns);
 
-            fs.writeFile("dist/teamMembers.html", generateTeamHtml(managerInfo, engineerInfo, internInfo), (err) => err ? console.error(err) : console.log('You\'ve Created your team!'));
+            fs.writeFile('dist/teamMembers.html', generateTeamHtml(managerInfo, engineerInfo, internInfo), (err) => err ? console.error(err) : console.log('You\'ve Created your team!'));
         }
     })
 }
