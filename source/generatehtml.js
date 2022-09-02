@@ -1,10 +1,10 @@
 //this function will display the manager tile
 const managerTile = (manager) => {
     return `
-    <div class="card">
-        <div class="card-body text-center">
-            <h2 class="text-white bg-primary">${manager.name}</h2>
-            <h5 class="text-white bg-primary">Manager</h5>
+    <div class="card col-4 mx-3 mb-4">
+        <div class="card-body text-center mx-3">
+            <h2 class="text-white bg-primary mb-0">${manager.name}</h2>
+            <h5 class="text-white bg-primary mt-0">Manager</h5>
             <div class="card-body bg-light">
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${manager.id}</li>
@@ -21,10 +21,10 @@ const engineerTile = (engineers) => {
     //maps over the engineers array to create a bootstrap card
     return engineers.map(engineer =>{
         return `
-        <div class="card">
-            <div class="card-body text-center">
-                <h2 class="text-white bg-primary">${engineer.name}</h2>
-                <h5 class="text-white bg-primary">Engineer</h5>
+        <div class="card col-4 mx-3 mb-4">
+            <div class="card-body text-center mx-3">
+                <h2 class="text-white bg-primary mb-0">${engineer.name}</h2>
+                <h5 class="text-white bg-primary mt-0">Engineer</h5>
                 <div class="card-body bg-light">
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${engineer.id}</li>
@@ -44,10 +44,10 @@ const internTile = (interns) => {
     //maps over the interns array to create a bootstrap card
     return interns.map(intern =>{
         return `
-        <div class="card">
-            <div class="card-body text-center">
-                <h2 class="text-white bg-primary">${intern.name}</h2>
-                <h5 class="text-white bg-primary">Intern</h5>
+        <div class="card col-4 mx-3 mb-4">
+            <div class="card-body text-center mx-3">
+                <h2 class="text-white bg-primary mb-0">${intern.name}</h2>
+                <h5 class="text-white bg-primary mt-0">Intern</h5>
                 <div class="card-body bg-light">
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${intern.id}</li>
@@ -77,8 +77,8 @@ const generateTeamHtml = (managerTile, engineerTile, internTile) => {
 </head>
 <body>
     <div>
-        <div>
-            <h1 class="text-center fw-bold text-white bg-danger">My Team</h1>
+        <div class="jumbotron jumbotron-fluid bg-danger">
+            <h1 class="fw-bold text-center text-white">My Team</h1>
         </div>
     </div>
     <div class="container">
